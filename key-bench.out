@@ -1,0 +1,74 @@
+CREATE EXTENSION
+CREATE EXTENSION
+SET
+psql:key-bench.sql:122: NOTICE:  Creating tables
+psql:key-bench.sql:122: NOTICE:  ----------------------------------------
+psql:key-bench.sql:122: NOTICE:  Primary key (surrogate serial/uuid / natural text) benchmark
+psql:key-bench.sql:122: NOTICE:  Filling tables with 10000000 random items
+psql:key-bench.sql:122: NOTICE:  ----------------------------------------
+psql:key-bench.sql:122: NOTICE:  Populating big_int
+psql:key-bench.sql:122: NOTICE:   | Insert on big_int  (cost=0.00..20.01 rows=1000 width=4) (actual time=17706.105..17706.105 rows=0 loops=1)
+psql:key-bench.sql:122: NOTICE:   |   ->  Subquery Scan on "*SELECT*"  (cost=0.00..20.01 rows=1000 width=4) (actual time=0.010..4843.161 rows=10000000 loops=1)
+psql:key-bench.sql:122: NOTICE:   |         ->  Result  (cost=0.00..5.01 rows=1000 width=0) (actual time=0.005..688.266 rows=10000000 loops=1)
+psql:key-bench.sql:122: NOTICE:   | Planning time: 0.034 ms
+psql:key-bench.sql:122: NOTICE:   | Execution time: 17706.136 ms
+psql:key-bench.sql:122: NOTICE:
+psql:key-bench.sql:122: NOTICE:  Populating big_uuid
+psql:key-bench.sql:122: NOTICE:   | Insert on big_uuid  (cost=0.00..17.51 rows=1000 width=4) (actual time=357330.632..357330.632 rows=0 loops=1)
+psql:key-bench.sql:122: NOTICE:   |   ->  Subquery Scan on "*SELECT*"  (cost=0.00..17.51 rows=1000 width=4) (actual time=0.190..85171.572 rows=10000000 loops=1)
+psql:key-bench.sql:122: NOTICE:   |         ->  Result  (cost=0.00..5.01 rows=1000 width=0) (actual time=0.003..1991.934 rows=10000000 loops=1)
+psql:key-bench.sql:122: NOTICE:   | Planning time: 0.019 ms
+psql:key-bench.sql:122: NOTICE:   | Execution time: 357330.665 ms
+psql:key-bench.sql:122: NOTICE:
+psql:key-bench.sql:122: NOTICE:  Populating big_text
+psql:key-bench.sql:122: NOTICE:   | Insert on big_text  (cost=0.00..50.01 rows=1000 width=4) (actual time=640829.153..640829.153 rows=0 loops=1)
+psql:key-bench.sql:122: NOTICE:   |   ->  Subquery Scan on "*SELECT*"  (cost=0.00..50.01 rows=1000 width=4) (actual time=0.234..56409.127 rows=10000000 loops=1)
+psql:key-bench.sql:122: NOTICE:   |         ->  Result  (cost=0.00..5.01 rows=1000 width=0) (actual time=0.006..2521.524 rows=10000000 loops=1)
+psql:key-bench.sql:122: NOTICE:   | Planning time: 2.683 ms
+psql:key-bench.sql:122: NOTICE:   | Execution time: 640829.253 ms
+psql:key-bench.sql:122: NOTICE:
+psql:key-bench.sql:122: NOTICE:  ----------------------------------------
+psql:key-bench.sql:122: NOTICE:  Inserting into big_int
+psql:key-bench.sql:122: NOTICE:   | Insert on big_int  (cost=0.00..0.01 rows=1 width=0) (actual time=1.717..1.717 rows=0 loops=1)
+psql:key-bench.sql:122: NOTICE:   |   ->  Result  (cost=0.00..0.01 rows=1 width=0) (actual time=0.270..0.271 rows=1 loops=1)
+psql:key-bench.sql:122: NOTICE:   | Planning time: 0.018 ms
+psql:key-bench.sql:122: NOTICE:   | Execution time: 1.734 ms
+psql:key-bench.sql:122: NOTICE:
+psql:key-bench.sql:122: NOTICE:  Inserting into big_uuid
+psql:key-bench.sql:122: NOTICE:   | Insert on big_uuid  (cost=0.00..0.01 rows=1 width=0) (actual time=2.540..2.540 rows=0 loops=1)
+psql:key-bench.sql:122: NOTICE:   |   ->  Result  (cost=0.00..0.01 rows=1 width=0) (actual time=0.401..0.401 rows=1 loops=1)
+psql:key-bench.sql:122: NOTICE:   | Planning time: 0.008 ms
+psql:key-bench.sql:122: NOTICE:   | Execution time: 2.553 ms
+psql:key-bench.sql:122: NOTICE:
+psql:key-bench.sql:122: NOTICE:  Inserting into big_text
+psql:key-bench.sql:122: NOTICE:   | Insert on big_text  (cost=0.00..0.04 rows=1 width=0) (actual time=1.811..1.811 rows=0 loops=1)
+psql:key-bench.sql:122: NOTICE:   |   ->  Result  (cost=0.00..0.04 rows=1 width=0) (actual time=1.720..1.720 rows=1 loops=1)
+psql:key-bench.sql:122: NOTICE:   | Planning time: 0.022 ms
+psql:key-bench.sql:122: NOTICE:   | Execution time: 1.843 ms
+psql:key-bench.sql:122: NOTICE:
+psql:key-bench.sql:122: NOTICE:  ----------------------------------------
+psql:key-bench.sql:122: NOTICE:  Sampling big_int
+psql:key-bench.sql:122: NOTICE:  Sampling big_uuid
+psql:key-bench.sql:122: NOTICE:  Sampling big_text
+psql:key-bench.sql:122: NOTICE:  ----------------------------------------
+psql:key-bench.sql:122: NOTICE:  Searching big_int
+psql:key-bench.sql:122: NOTICE:   | Index Scan using big_int_pkey on big_int  (cost=0.43..8.45 rows=1 width=4) (actual time=0.460..0.461 rows=1 loops=1)
+psql:key-bench.sql:122: NOTICE:   |   Index Cond: (id = 226)
+psql:key-bench.sql:122: NOTICE:   | Planning time: 4.713 ms
+psql:key-bench.sql:122: NOTICE:   | Execution time: 0.490 ms
+psql:key-bench.sql:122: NOTICE:
+psql:key-bench.sql:122: NOTICE:  Searching big_uuid
+psql:key-bench.sql:122: NOTICE:   | Index Scan using big_uuid_pkey on big_uuid  (cost=0.43..8.45 rows=1 width=4) (actual time=0.476..0.477 rows=1 loops=1)
+psql:key-bench.sql:122: NOTICE:   |   Index Cond: (id = '193de4c7-3be2-4baa-9772-48b624a871ea'::uuid)
+psql:key-bench.sql:122: NOTICE:   | Planning time: 0.488 ms
+psql:key-bench.sql:122: NOTICE:   | Execution time: 0.493 ms
+psql:key-bench.sql:122: NOTICE:
+psql:key-bench.sql:122: NOTICE:  Searching big_text
+psql:key-bench.sql:122: NOTICE:   | Index Scan using big_text_pkey on big_text  (cost=0.69..8.71 rows=1 width=4) (actual time=0.078..0.078 rows=1 loops=1)
+psql:key-bench.sql:122: NOTICE:   |   Index Cond: (id = '\x020f1e3d06c79396f730cfeaf5e6ceaa6365f55030210a1ad613cbf0a495c75527890624f19aa5268c4eab06efe176dc192e6a26646c5396ca5032c424e8aa97'::text)
+psql:key-bench.sql:122: NOTICE:   | Planning time: 0.225 ms
+psql:key-bench.sql:122: NOTICE:   | Execution time: 0.095 ms
+psql:key-bench.sql:122: NOTICE:
+psql:key-bench.sql:122: NOTICE:  ----------------------------------------
+psql:key-bench.sql:122: NOTICE:  Done
+DO

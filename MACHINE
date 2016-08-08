@@ -1,0 +1,15 @@
+Run on:
+	Machine: HP Probook 470 G1
+	Kernel: 4.6.0
+	OS: Arch Linux
+	CPU: i7-4702MQ@2.2GHz
+	RAM: 8GB
+	Disk: Samsung 850 Pro SSD
+
+Will also run on this if I get time:
+	Machine: custom built
+	Kernel: 4.6.4
+	OS: Arch Linux
+	CPU: i7-2700k@5.1GHz
+	RAM: 24GB@2133MHz
+	Disk: Sys: 2x Intel 520 SSD (JBOD), Data: 7x various HDD (BTRFS RAID1/5)
